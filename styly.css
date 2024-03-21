@@ -1,6 +1,5 @@
 body {
   background-color: #ffc8da;
-  /* For browsers that do not support gradients */
   background-image: linear-gradient(#615dad, #ffc8da);
   margin: 0;
   background-repeat: no-repeat;
@@ -8,36 +7,31 @@ body {
 }
 
 .container {
-  margin: 70px auto;
+  margin: 65px auto;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.container_image {
-  max-height: 244px;
 }
 
 .image {
-  max-width: 100%;
+  width: 100%;
+  max-height: 100%;
   border-radius: 10px 10px 0 0;
+}
+
+.container__image {
+  height: 225px;
 }
 
 .container__content {
   background-color: #283e50;
   padding: 1rem;
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .container__text {
   color: #ffff;
-  font-size: large;
+  font-size: 18px;
   text-align: center;
   font-family: sans-serif;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 
 .container__title {
@@ -47,24 +41,26 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: 55px;
-  line-height: 0.8;
+  line-height: 0.3;
+  padding-bottom: 0.3cm;
 }
 
-.btn__pravidla {
+.button__pravidla {
   background-color: #1fcca4;
   text-align: center;
 }
 
-.btn__pravidla:hover {
+.button__pravidla:hover {
   background-color: #1cbb96;
 }
 
-.btn__hra {
+.button__hra {
   background-color: #0197f6;
   text-align: center;
+  border-top: 1px solid #283e50;
 }
 
-.btn__hra:hover {
+.button__hra:hover {
   background-color: #0090e9;
 }
 
@@ -73,6 +69,6 @@ body {
   font-size: large;
   font-family: sans-serif;
   text-decoration: none;
-  line-height: 3;
+  line-height: 2.8;
   display: block;
 }
