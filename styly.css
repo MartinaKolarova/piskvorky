@@ -83,6 +83,8 @@ body {
   display: block;
 }
 
+/* styles for hra.html*/
+
 .game__all {
   display: flex;
   flex-direction: column;
@@ -116,16 +118,61 @@ body {
   align-items: center;
 }
 
+.player__turn--circle {
+  padding-left: 5%;
+}
+
+
 
 .game__header--right {
   display: flex;
   align-items: center;
 }
 
-.player__turn {}
+.game__buttons--home {
+  width: 3rem;
+  height: 3rem;
+}
 
-.home__btn {}
+.game__buttons--restart {
+  width: 3rem;
+  height: 3rem;
+}
 
-.restart__btn {}
+.home__btn {
+  background-color: #1fcca4;
+  border-radius: 15%;
+  padding-left: 15%;
+  padding-top: 20%;
+  padding-right: 15%;
+  padding-bottom: 15%;
+}
 
-.playing__field {}
+.home__btn:hover {
+  background-color: #1cbb96;
+}
+
+.restart__btn {
+  background-color: #0197f6;
+  border-radius: 15%;
+  padding-left: 15%;
+  padding-top: 20%;
+  padding-right: 15%;
+  padding-bottom: 15%;
+}
+
+.restart__btn:hover {
+  background-color: #0090e9;
+}
+
+.game__board {
+  display: flex;
+  flex-wrap: wrap;
+  border: black 0.5px solid;
+}
+
+.game__board--field {
+  flex-basis: 10%;
+  opacity: 0.5;
+  aspect-ratio: 1 / 1;
+}
