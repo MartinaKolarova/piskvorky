@@ -109,13 +109,14 @@ body {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 
 .game__header--left {
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+
 }
 
 .player__turn--circle {
@@ -127,6 +128,7 @@ body {
 .game__header--right {
   display: flex;
   align-items: center;
+  margin-top: 2%;
 }
 
 .game__buttons--home {
@@ -168,11 +170,18 @@ body {
 .game__board {
   display: flex;
   flex-wrap: wrap;
-  border: black 0.5px solid;
+  border: black 1px solid;
 }
 
 .game__board--field {
   flex-basis: 10%;
   opacity: 0.5;
   aspect-ratio: 1 / 1;
+  border: black 1px solid;
+  cursor: pointer;
+}
+
+.game__board--field:hover,
+.game__board--field:focus {
+  background-color: #ffff;
 }
