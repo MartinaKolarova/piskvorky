@@ -5,11 +5,11 @@ const makeCircleOrCross = (evt) => {
   if (currentPlayer === 'circle') {
     currentPlayer = 'cross';
     evt.target.classList.add('board__field--cross');
-    document.querySelector('.player__turn').src = 'cross.svg';
+    document.querySelector('.player__turn').src = 'circle.svg';
   } else {
     currentPlayer = 'circle';
     evt.target.classList.add('board__field--circle');
-    document.querySelector('.player__turn').src = 'circle.svg';
+    document.querySelector('.player__turn').src = 'cross.svg';
   }
 };
 
