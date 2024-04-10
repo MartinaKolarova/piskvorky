@@ -183,26 +183,40 @@ body {
 }
 
 /*there is 3th part of homework*/
+
+
 .board__field--circle {
   background-image: url(circle_black.svg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 80% 80%;
+  background-size: 60% 60%;
+  /*bonus*/
+  animation: enlarge 0.15s linear;
+
 }
 
 .board__field--cross {
   background-image: url(cross_black.svg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 80% 80%;
+  background-size: 60% 60%;
+  /*bonus animation enlarge*/
+  animation: enlarge 0.15s linear;
 }
 
+button:disabled {
+  filter: auto;
+  cursor: auto;
+  background-color: #ffff;
+}
+
+/*part of animation enlarge*/
 @keyframes enlarge {
   0% {
-    transform: scale(1);
+    transform: scale(0.5);
   }
 
   100% {
-    transform: scale(1.5);
+    transform: scale(1);
   }
 }
