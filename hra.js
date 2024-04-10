@@ -43,3 +43,12 @@ document
 document
   .querySelector('button:nth-child(10)')
   .addEventListener('click', makeCircleOrCross);
+
+/*bonus confirm restart*/
+
+document.querySelector('.restart__btn').addEventListener('click', (event) => {
+  const confirmRestart = confirm('Opravdu chcete ukončit hru?');
+  if (confirmRestart === false) {
+    event.preventDefault();
+  }
+});
