@@ -2,10 +2,8 @@ html {
   box-sizing: border-box;
 }
 
-*,
-::after,
-::before {
-  box-sizing: inherit;
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -184,4 +182,19 @@ body {
 .game__board--field:hover,
 .game__board--field:focus {
   background-color: #ffff;
+}
+
+/*there is 3th part of homework*/
+.board__field--circle {
+  background-image: url(circle_black.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80% 80%;
+}
+
+.board__field--cross {
+  background-image: url(cross_black.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80% 80%;
 }
