@@ -117,11 +117,9 @@ body {
 
 }
 
-.player__turn--circle {
+.player__turn {
   padding-left: 5%;
 }
-
-
 
 .game__header--right {
   display: flex;

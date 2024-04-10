@@ -1,10 +1,15 @@
 let currentPlayer = 'circle';
+
 const makeCircleOrCross = (evt) => {
+  evt.target.disabled = true;
   if (currentPlayer === 'circle') {
-    (currentPlayer = 'cross'), evt.target.classList.add('board__field--cross');
+    currentPlayer = 'cross';
+    evt.target.classList.add('board__field--cross');
+    document.getElementsByClassName('player__turn').src = 'cross.svg';
   } else {
-    evt.target.classList.add('board__field--circle'),
-      (currentPlayer = 'circle');
+    currentPlayer = 'circle';
+    evt.target.classList.add('board__field--circle');
+    document.getElementsByClassName('player__turn').src = 'circle.svg';
   }
 };
 
