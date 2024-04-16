@@ -213,10 +213,10 @@ button:disabled {
 /*part of animation enlarge*/
 @keyframes enlarge {
   0% {
-    transform: scale(0.5);
+    background-size: 50%;
   }
 
   100% {
-    transform: scale(1);
+    background-size: 100%;
   }
 }
