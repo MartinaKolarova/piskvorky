@@ -1,3 +1,4 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 let currentPlayer = 'circle';
 
 const makeCircleOrCross = (evt) => {
@@ -12,37 +13,31 @@ const makeCircleOrCross = (evt) => {
     document.querySelector('.player__turn').src = 'cross.svg';
   }
 };
+const buttons = document.querySelectorAll('.game__board--field');
+buttons.forEach((button) => {
+  button.addEventListener('click', makeCircleOrCross);
+});
 
-document
-  .querySelector('button:nth-child(1)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(2)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(3)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(4)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(5)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(6)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(7)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(8)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(9)')
-  .addEventListener('click', makeCircleOrCross);
-document
-  .querySelector('button:nth-child(10)')
-  .addEventListener('click', makeCircleOrCross);
+const gameBoard = Array.from(buttons).map((item) => {
+  if (item.classList.contains('board__field--circle')) {
+    return 'o';
+  } else if (item.classList.contains('board__field--cross')) {
+    return 'x';
+  } else {
+    return '_';
+  }
+});
+
+const returnWinner = () => {
+  const winner = findWinner(gameBoard);
+  if (winner === 'o' || winner === 'x') {
+    alert(`Vyhrál hráč se symbolem "${winner()}"!`);
+    location.reload();
+  } else if (winner === 'tie') {
+    alert('Hra skončila nerozhodně.');
+  }
+  setTimeout(returnWinner, 500);
+};
 
 /*bonus confirm restart*/
 
