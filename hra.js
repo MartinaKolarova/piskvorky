@@ -12,6 +12,7 @@ const makeCircleOrCross = (evt) => {
     evt.target.classList.add('board__field--circle');
     document.querySelector('.player__turn').src = 'cross.svg';
   }
+
   const gameBoard = Array.from(buttons).map((item) => {
     if (item.classList.contains('board__field--circle')) {
       return 'o';
@@ -29,15 +30,20 @@ buttons.forEach((button) => {
   button.addEventListener('click', makeCircleOrCross);
 });
 
+/*winner with setTimeout*/
+
 const returnWinner = (gameBoard) => {
-  console.log(gameBoard);
   const winner = findWinner(gameBoard);
-  console.log(winner);
   if (winner === 'o' || winner === 'x') {
-    alert(`Vyhrál hráč se symbolem "${winner}"!`);
-    location.reload();
-  } else if (winner === 'tie') {
-    alert('Hra skončila nerozhodně.');
+    setTimeout(() => {
+      alert(`Vítězem je hráč se symbolem ${winner}.`);
+    }, 500);
+  }
+
+  if (winner === 'tie') {
+    setTimeout(() => {
+      alert(`Hra skončila remízou.`);
+    }, 500);
   }
 };
 
