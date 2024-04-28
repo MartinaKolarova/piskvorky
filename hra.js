@@ -28,7 +28,7 @@ const makeCircleOrCross = (evt) => {
 
 /*winner with setTimeout*/
 
-const returnWinner = (gameBoard) => {
+const returnWinner = async (gameBoard) => {
   const winner = findWinner(gameBoard);
   if (winner === 'o' || winner === 'x') {
     setTimeout(() => {
@@ -41,31 +41,30 @@ const returnWinner = (gameBoard) => {
       alert(`Hra skončila remízou.`);
     }, 500);
   }
-};
 
-/*Api*/
+  /* work with Api*/
 
-if (currentPlayer === 'cross') {
-  const response = await fetch(
-    'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
-    {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
+  if (currentPlayer === 'cross') {
+    const response = await fetch(
+      'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+      {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          board: gameBoard,
+          player: 'x',
+        }),
       },
-      body: JSON.stringify({
-        board: gameBoard,
-        player: 'x',
-      }),
-    },
-  );
+    );
 
-  const data = await response.json();
-  const { x, y } = data.position;
-  const field = buttons[x + y * 10];
-  field.click();
-}
-
+    const data = await response.json();
+    const { x, y } = data.position;
+    const field = buttons[x + y * 10];
+    field.click();
+  }
+};
 const buttons = document.querySelectorAll('.game__board--field');
 buttons.forEach((button) => {
   button.addEventListener('click', makeCircleOrCross);
