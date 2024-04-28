@@ -4,12 +4,12 @@ let currentPlayer = 'circle';
 const makeCircleOrCross = (evt) => {
   evt.target.disabled = true;
   if (currentPlayer === 'circle') {
+    evt.target.classList.add('board__field--circle');
     currentPlayer = 'cross';
-    evt.target.classList.add('board__field--cross');
     document.querySelector('.player__turn').src = 'circle.svg';
   } else {
+    evt.target.classList.add('board__field--cross');
     currentPlayer = 'circle';
-    evt.target.classList.add('board__field--circle');
     document.querySelector('.player__turn').src = 'cross.svg';
   }
 
@@ -22,13 +22,9 @@ const makeCircleOrCross = (evt) => {
       return '_';
     }
   });
+
   returnWinner(gameBoard);
 };
-
-const buttons = document.querySelectorAll('.game__board--field');
-buttons.forEach((button) => {
-  button.addEventListener('click', makeCircleOrCross);
-});
 
 /*winner with setTimeout*/
 
@@ -46,6 +42,34 @@ const returnWinner = (gameBoard) => {
     }, 500);
   }
 };
+
+/*Api*/
+
+if (currentPlayer === 'cross') {
+  const response = await fetch(
+    'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+    {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        board: gameBoard,
+        player: 'x',
+      }),
+    },
+  );
+
+  const data = await response.json();
+  const { x, y } = data.position;
+  const field = buttons[x + y * 10];
+  field.click();
+}
+
+const buttons = document.querySelectorAll('.game__board--field');
+buttons.forEach((button) => {
+  button.addEventListener('click', makeCircleOrCross);
+});
 
 /*bonus confirm restart*/
 
